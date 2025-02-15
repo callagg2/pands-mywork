@@ -1,0 +1,14 @@
+# converts a number to cent.
+#
+# Author: Andrew Beatty
+import math
+amount_to_convert = float(input("Please enter an amount:"))
+
+absolute_amount_to_convert = abs(amount_to_convert)
+
+def format_currency(amount):
+    amount = amount *100
+    return '{:,.0f}'.format(amount)
+
+converted_amount = format_currency(absolute_amount_to_convert )
+print(f"That amount in cent is {converted_amount}")
