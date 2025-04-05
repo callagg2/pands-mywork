@@ -50,19 +50,20 @@ based on Column'
 '''
 
 def randomise_data_on_col(df, columnName):
-    oldSeries = get_series_of_unique(df, columnName)
+    old_series = get_series_of_unique(df, columnName)
     
     # I haven't checked whish is the quicker randomiser
     # pandas of lists
-    oldList = oldSeries.tolist()
-    randomise_data_on_list(df, oldList)
+    old_list = old_series.tolist()
+    randomise_data_on_list(df, old_list)
 
-def randomise_data_on_list(df, oldList):
-    newList = oldList.copy()
-    random.shuffle(newList)
+def randomise_data_on_list(df, old_list):
+    new_list = old_list.copy()
+    random.shuffle(new_list)
     #print(oldList) # debug checkig they are different
     #print(newList) # debug
-    df.replace(oldList, newList, inplace=True, regex=True)
+    # regex means regular expressions so any column that contains the relevant bit of text
+    df.replace(old_list, new_list, inplace=True, regex=True)
 
 def clear_module_ids(module_name):
     # this code is taken from 
@@ -104,7 +105,7 @@ def randomise_staff(df, df_fake_names):
     #print (df_fakeNames) # debug
 
 
-    ds_staff =get_series_of_unique(df, 'Staff (delimited)')
+    ds_staff = get_series_of_unique(df, 'Staff (delimited)')
     #print(ds_staff)
     #print(ds_staff.size)  # debug
 
